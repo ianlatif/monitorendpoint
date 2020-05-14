@@ -1,10 +1,5 @@
 pipeline {
    agent any
-
-    // tools {
-    //     go 'golang'
-    // }
-
    stages {
         stage('Build') {
             when { branch 'master' }
@@ -22,7 +17,7 @@ pipeline {
             }
         }
 
-        // run golang dari server local jenkins
+        // menjalankan golang dari server local jenkins
         stage('Deploy') { 
             when { branch 'docker' }
             tools { go 'golang' }
@@ -34,7 +29,7 @@ pipeline {
             }
         }
         
-        //ketika akan menggunukan docker di setiap stage untuk golang
+        //runing golang didalam docker 
         stage('docker') {
             agent { docker { image 'golang:1.12-alpine' } }
             steps {
