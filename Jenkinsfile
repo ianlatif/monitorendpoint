@@ -17,6 +17,7 @@ pipeline {
    stage('Test') {
      when { branch 'develop' }  
      steps {
+        sh 'docker build -t docker.sysadminroot.com/monitorendpoint -f Dockerfile .'
         sh 'docker ps'
      }
    }
