@@ -24,10 +24,10 @@ pipeline {
 
         // run golang dari server local jenkins
         stage('Deploy') { 
-            when { branch 'staging' }
+            when { branch 'docker' }
             steps {
                 withEnv(["PATH+EXTRA=${HOME}/go/bin"]){
-                echo 'Deploying...'
+                echo 'Deploying... didalam staging'
                 sh 'go version'
                 }
             }
