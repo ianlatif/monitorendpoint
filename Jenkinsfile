@@ -18,11 +18,11 @@ pipeline {
      when { branch 'develop' }  
      steps {
         sh 'docker build -t docker.sysadminroot.com/monitorendpoint -f Dockerfile .'
-        sh 'docker ps'
+        sh 'docker ps' 
      }
    }
 
-   stage('Deploy') {
+   stage('Deploy') { 
         when { branch 'staging' }
         steps {
             withEnv(["PATH+EXTRA=${HOME}/go/bin"]){
