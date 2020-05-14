@@ -1,0 +1,15 @@
+stages:
+    - build
+
+build_push:
+    image: docker:stable
+    stage: build
+    script:
+        - docker build -t docker.adroady.com/monitorendpoint -f Dockerfile .
+        - docker push docker.adroady.com/monitorendpoint
+        - docker rmi docker.adroady.com/monitorendpoint
+        - kubectl config use-context gke_adroady-184609_asia-southeast1-a_frontend
+        
+
+
+    

@@ -1,0 +1,11 @@
+version: "2.3"
+
+services: 
+    monitorenpoint:
+        container_name: monitorenpoint
+        image: docker.adroady.com/monitorenpoint
+        restart: always
+        # ports:
+        #   - "7070:1323"
+        build:
+          context: .        
