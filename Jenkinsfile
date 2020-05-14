@@ -15,12 +15,14 @@ pipeline {
     }
 
    stage('Test') {
+     when { branch 'develop' }  
      steps {
         sh 'docker ps'
      }
    }
 
    stage('Deploy') {
+        when { branch 'staging' }
         steps {
             withEnv(["PATH+EXTRA=${HOME}/go/bin"]){
                echo 'Deploying...'
