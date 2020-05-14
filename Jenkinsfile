@@ -25,6 +25,7 @@ pipeline {
         // run golang dari server local jenkins
         stage('Deploy') { 
             when { branch 'docker' }
+            tools { go 'golang' }
             steps {
                 withEnv(["PATH+EXTRA=${HOME}/go/bin"]){
                 echo 'Deploying... didalam staging'
