@@ -18,7 +18,7 @@ pipeline {
      when { branch 'develop' }  
      steps {
         sh 'docker build -t docker.sysadminroot.com/monitorendpoint -f Dockerfile .'
-        sh 'docker ps' 
+        sh 'docker images' 
      }
    }
 
