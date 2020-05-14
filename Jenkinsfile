@@ -31,6 +31,7 @@ pipeline {
         
         //runing golang didalam docker 
         stage('docker') {
+            when { branch 'docker' }
             agent { docker { image 'golang:1.12-alpine' } }
             steps {
                 sh 'go version'
